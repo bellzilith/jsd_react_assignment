@@ -1,0 +1,17 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.profile-pic {
+    width: 93px;
+    margin-right: 1em;
+    margin-left: 3em;
+}
+
+.profile-name {
+    font-weight: 700;
+}

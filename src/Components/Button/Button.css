@@ -1,0 +1,14 @@
+.custom-btn {
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    border-radius: 1.5rem;
+    background: #f85f6a;
+    color: #fff;
+    width: 100%;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
+    cursor: pointer;
+    max-width: 400px;
+  }
