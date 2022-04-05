@@ -1,9 +1,10 @@
-import PropTypes from "prop-types";
-//import "./Post.css";
+import React from 'react'; 
+//import PropTypes from "prop-types";
+import "./Posts.css";
 
 const Post = ({ id, activity, date, duration, kcal, distance, deletePost }) => {
   return (
-    <div>
+    <div className="post">
       <div className="postActivity">Activity: {activity}</div>
       <div className="postDate">Date : {date}</div>
       <div className="postDuration">Duration : {duration}</div>

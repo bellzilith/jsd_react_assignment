@@ -3,7 +3,7 @@ import "./Button.css";
 
 const ActivityButton = ({ children, onClick, onChange }) => {
   return (
-    <button className="custom-btn" onClick={onClick} onChange={onChange}>
+    <button className="custom-btn" type="submit" onClick={onClick}>
       {children}
     </button>
   );

@@ -1,12 +1,15 @@
 .main-box {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem calc((100vw - 1500px) /2);
 }
 
 .form-box {
     display: flex;
     flex-direction: column;
-    margin-left: 5em;
+    margin-left: 1em;
+    /* width: 500px; */
 }
 
 .title {
@@ -29,6 +32,22 @@
     display: flex;
     flex-direction: column;
     margin-left: 1em;
+}
+
+.form-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+}
+
+.icon-box {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    /* display: flex;
+    justify-content: center;
+    align-content: center;
+    max-width: 760px; */
 }
 
 input {

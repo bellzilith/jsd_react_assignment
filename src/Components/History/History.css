@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    margin-top: 5em;
+    justify-content: center;
+    color: #f85f6a;
+}
+
+.history {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}

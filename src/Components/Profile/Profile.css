@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    padding: 0.5rem calc((100vw - 1500px) /2);
 
 }
 

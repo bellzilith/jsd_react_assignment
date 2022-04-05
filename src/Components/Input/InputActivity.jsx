@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ActivityButton from "../Button/ActivityButton";
+import IconButton from "../IconButton/IconButton";
 import "./InputActivity.css";
 
 const InputActivity = ({ addPost }) => {
@@ -29,7 +30,8 @@ const InputActivity = ({ addPost }) => {
     setDistance(e.target.value);
   };
 
-  const submit = (props) => {
+  const submit = (event) => {
+    event.preventDefault();
     const valueInputActivity = {
       Activity: activity,
       Date: date,
@@ -38,82 +40,89 @@ const InputActivity = ({ addPost }) => {
       Distance: distance,
     };
 
-    if (valueInputActivity.activity === null) {
-      alert("Please type activity name");
-      return false;
-    }
+    addPost(valueInputActivity);
   };
   return (
-    <main className="main-box">
-      <div className="form-box">
-        <h2 className="title">Add Activity</h2>
-        <div className="form">
-          <div className="form-label">
-            <label placeholder="Activity">Activity type</label>
-            <label placeholder="Date">Date</label>
-            <label placeholder="Duration">Duration</label>
-            <label placeholder="kcal">kcal</label>
-            <label placeholder="Distance">Distance</label>
-          </div>
+    <main>
+      <div className="main-box">
+        <div className="form-box">
+          <h2 className="title">Add Activity</h2>
+          <div className="form">
+            <div className="form-label">
+              <label placeholder="Activity">Activity type</label>
+              <label placeholder="Date">Date</label>
+              <label placeholder="Duration">Duration</label>
+              <label placeholder="kcal">kcal</label>
+              <label placeholder="Distance">Distance</label>
+            </div>
 
-          <div className="form-input">
-            {/*---------------Activity Type---------------*/}
-            <input
-              className="activity-input"
-              type=""
-              value={activity}
-              onChange={onChangeActivity}
-              placeholder="Running"
-            />
-            {/*---------------Date---------------*/}
-            <input
-              className="date-input"
-              type=""
-              value={date}
-              onChange={onChangeDate}
-              placeholder="1/1/22 12:00"
-            />
-            {/*---------------Duration---------------*/}
-            <input
-              className="duration-input"
-              type=""
-              value={duration}
-              onChange={onChangeDuration}
-              placeholder="30:00"
-            />
-            {/*---------------kcal---------------*/}
-            <input
-              className="kcal-input"
-              type=""
-              value={kcal}
-              onChange={onChangeKcal}
-              placeholder="120"
-            />
-            {/*---------------Distance---------------*/}
-            <input
-              className="distance-input"
-              type=""
-              value={distance}
-              onChange={onChangeDistance}
-              placeholder="5 KM."
-            />
+            <div className="form-input">
+              {/*---------------Activity Type---------------*/}
+              <input
+                className="activity-input"
+                type=""
+                value={activity}
+                onChange={onChangeActivity}
+                placeholder="Running"
+              />
+              {/*---------------Date---------------*/}
+              <input
+                className="date-input"
+                type=""
+                value={date}
+                onChange={onChangeDate}
+                placeholder="1/1/22 12:00"
+              />
+              {/*---------------Duration---------------*/}
+              <input
+                className="duration-input"
+                type=""
+                value={duration}
+                onChange={onChangeDuration}
+                placeholder="30:00"
+              />
+              {/*---------------kcal---------------*/}
+              <input
+                className="kcal-input"
+                type=""
+                value={kcal}
+                onChange={onChangeKcal}
+                placeholder="120"
+              />
+              {/*---------------Distance---------------*/}
+              <input
+                className="distance-input"
+                type=""
+                value={distance}
+                onChange={onChangeDistance}
+                placeholder="5 KM."
+              />
+            </div>
           </div>
         </div>
-        <br />
+        <div className="icon-box">
+          <IconButton src="./images/athletes/Running.png" alt="Running" />
+          <IconButton src="./images/athletes/Badminton.png" alt="Badminton" />
+          <IconButton src="./images/athletes/Canoe_Slalom.png" alt="Canoe_Slalom" />
+          <IconButton src="./images/athletes/Cycling_Road.png" alt="Cycling_Road" />
+          <IconButton src="./images/athletes/Football.png" alt="Football" />
+          <IconButton src="./images/athletes/Handball.png" alt="Handball" />
+          <IconButton src="./images/athletes/Karate.png" alt="Karate" />
+          <IconButton src="./images/athletes/Sport_Climbing.png" alt="Sport_Climbing" />
+          <IconButton src="./images/athletes/Surfing.png" alt="Surfing" />
+          <IconButton src="./images/athletes/Swimming.png" alt="Swimming" />
+        </div>
+      </div>
+      <div className="form-button">
         {/*---------------Button---------------*/}
-        <ActivityButton onClick={submit} onChange={onChangeDate}>Save Activity</ActivityButton>
-        {/* <div className="button-input">
-          <button
-            className="create-post"
-            onChange={onChangeDate}
-            onClick={submit}
-          >
-            Submit
-          </button>
-        </div> */}
+        <ActivityButton
+          onClick={(event) => submit(event)}
+          onChange={onChangeDate}
+        >
+          Save Activity
+        </ActivityButton>
       </div>
     </main>
-    
   );
 };
 
