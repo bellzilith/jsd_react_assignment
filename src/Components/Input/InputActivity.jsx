@@ -46,7 +46,7 @@ const InputActivity = ({ addPost }) => {
     <main>
       <div className="main-box">
         <div className="form-box">
-          <h2 className="title">Add Activity</h2>
+          <h2 className="title_input">Add Activity</h2>
           <div className="form">
             <div className="form-label">
               <label placeholder="Activity">Activity type</label>

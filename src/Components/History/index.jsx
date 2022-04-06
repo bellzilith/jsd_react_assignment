@@ -19,11 +19,11 @@ const History = () => {
 
     return (
       <main>
-        <h2 className="container">Recent Activities</h2>
+        <h2 className="title">Recent Activities</h2>
         <div className="history">
           {posts.map((post) => (
             <Post
-              key={post.id}
+              key={post.key}
               id={post.id}
               activity={post.activity}
               date={post.date}
@@ -34,7 +34,6 @@ const History = () => {
             />
           ))}
         </div>
-        
       </main>
     );
 }

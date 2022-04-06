@@ -12,8 +12,9 @@
     /* width: 500px; */
 }
 
-.title {
+.title_input {
     color: #f85f6a;
+    
 }
 
 .form {
@@ -38,6 +39,7 @@
     display: flex;
     justify-content: center;
     margin-top: 4em;
+
 }
 
 .icon-box {
@@ -52,7 +54,7 @@
 
 input {
     border: none;
-    border-bottom: 1px solid #949397;
+    border-bottom: 1px solid #ddd;
     padding: 0.5rem;
     font-size: 1rem;
 }

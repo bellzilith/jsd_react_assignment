@@ -1,25 +1,47 @@
 import React from 'react'; 
-//import PropTypes from "prop-types";
+//import PropTYPEs from "prop-TYPEs";
 import "./Posts.css";
 
 const Post = ({ id, activity, date, duration, kcal, distance, deletePost }) => {
   return (
-    <div className="post">
-      <div className="postActivity">Activity: {activity}</div>
-      <div className="postDate">Date : {date}</div>
-      <div className="postDuration">Duration : {duration}</div>
-      <div className="postKcal">kcal : {kcal}</div>
-      <div className="postDistance">Distance : {distance}</div>
-      <button className="Post__delete" onClick={() => deletePost(id)}>
-        x
-      </button>
-    </div>
-  )};
+    <main>
+      <div className="main">
+        <div className="post">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">TYPE</th>
+                <th scope="col">DATE</th>
+                <th scope="col">DURATION</th>
+                <th scope="col">KCAL</th>
+                <th scope="col">DISTANCE</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="TYPE">{activity}</td>
+                <td data-label="DATE">{date}</td>
+                <td data-label="DURATION">{duration}</td>
+                <td data-label="KCAL">{kcal}</td>
+                <td data-label="DISTANCE">{distance}</td>
+                <td data-label="">
+                  <button className="Post_delete" onClick={() => deletePost(id)}>
+                  Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  );};
 
-//   Post.PropTypes = {
-//     id: PropTypes.number.isRequired,
-//     title: PropTypes.string.isRequired,
-//     deletePost: PropTypes.func.isRequired,
+//   Post.PropTYPEs = {
+//     id: PropTYPEs.number.isRequired,
+//     title: PropTYPEs.string.isRequired,
+//     deletePost: PropTYPEs.func.isRequired,
 //   };
 
   export default Post;
