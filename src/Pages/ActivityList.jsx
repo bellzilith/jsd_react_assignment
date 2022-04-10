@@ -3,6 +3,7 @@ import NavBar from "../Components/NavBar/NavBar";
 import Post from "../Components/Posts/Posts";
 import Profile from "../Components/Profile/Profile";
 import History from "../Components/History"
+import Footer from "../Components/Footer/Footer";
 
 import "../App.css";
 
@@ -13,6 +14,7 @@ const ActivityList = (props) => {
       <NavBar />
       <Profile />
       <History />
+      <Footer />
     </main>
   );
 };

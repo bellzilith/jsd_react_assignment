@@ -10,19 +10,19 @@ const NavBar = () => {
       </NavLink>
       <Bars />
       <NavMenu>
-        <NavLink to="/profile" activeStyle>
+        <NavLink to="/" activeStyle>
           Profile
         </NavLink>
-        <NavLink to="/activity" activeStyle>
+        <NavLink to="/" activeStyle>
           Activity
         </NavLink>
-        <NavLink to="/history" activeStyle>
+        <NavLink to="/activity_list" activeStyle>
           History
         </NavLink>
-        <NavLink to="/settings" activeStyle>
+        <NavLink to="/" activeStyle>
           Settings
         </NavLink>
-        <NavBtnLink to="/logout">Log out</NavBtnLink>
+        <NavBtnLink to="/">Log out</NavBtnLink>
       </NavMenu>
       {/* <NavBtn>
         <NavBtnLink to="/logout">Log out</NavBtnLink>

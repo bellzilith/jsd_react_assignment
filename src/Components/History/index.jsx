@@ -6,11 +6,6 @@ import './History.css';
 const History = () => {
     const [posts, setPosts] = useUserRecords();
 
-    const addPost = ({ id, activity, date, duration, kcal, distance }) => {
-      const newPost = { id, activity, date, duration, kcal, distance };
-      console.log(newPost);
-      setPosts([newPost, ...posts]);
-    };
 
     const deletePost = (id) => {
       const updatePosts = posts.filter((post) => post.id !== id);
