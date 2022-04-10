@@ -22,7 +22,7 @@ const Footer = () => {
             <li><a href="https://www.facebook.com/imbell">Facebook</a></li>
             <li><a href="https://www.github.com/bellzilith">Github</a></li>
             <li><a href="mailto:thananrat.a@gmail.com">Email me</a></li>
-            <li><a href="tel:096-162-5395">Mobile</a></li>
+            <li><a href="tel:111-111-1111">Mobile</a></li>
           </ul>
         </div>
         <div className="foot-right-column2">
