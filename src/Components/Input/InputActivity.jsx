@@ -1,15 +1,68 @@
 import React, { useState, useEffect } from "react";
 import ActivityButton from "../Button/ActivityButton";
 import IconButton from "../IconButton/IconButton";
+import FormInput from "../Input/Input";
 import { useUserRecords } from '../Hooks/Hooks';
 import "./InputActivity.css";
 
 const InputActivity = ({ addPost }) => {
-  const [activity, setActivity] = useState("");
-  const [date, setDate] = useState(""); //new Date()
-  const [duration, setDuration] = useState("");
-  const [kcal, setKcal] = useState("");
-  const [distance, setDistance] = useState("");
+  const [values, setValues] = useState({
+      activity:"",
+      date:"",
+      duration:"",
+      kcal:"",
+      distance:"",
+  });
+
+  const inputs = [
+    {
+      id: 1,
+      name: "activity",
+      type: "text",
+      placeholder: "running",
+      errorMessage: "Activity should be 3-16 characters and not include any special characters.",
+      label: "Activity type",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "date",
+      type: "date",
+      placeholder: "11-04-2022",
+      errorMessage: "Please choose your activity date.",
+      label: "Date",
+      required: true,
+    },
+    {
+      id: 3,
+      name: "duration",
+      type: "text",
+      placeholder: "30:00:000",
+      errorMessage: "Duration should be in this format 00:00:000",
+      label: "Duration",
+      pattern: "^[0-9][0-9]:[0-5][0-9]:[0-9][0-9][0-9]$",
+      required: true,
+    },
+    {
+      id: 4,
+      name: "kcal",
+      type: "number",
+      placeholder: "120",
+      errorMessage: "Please input your kcal number.",
+      label: "Kcal",
+      required: true,
+    },
+    {
+      id: 5,
+      name: "distance",
+      type: "number",
+      placeholder: "5",
+      errorMessage: "Please input your distance number.",
+      label: "Distance",
+      required: true,
+    },
+  ];
 
   const [posts, setPosts] = useUserRecords();
 
@@ -19,34 +72,18 @@ const InputActivity = ({ addPost }) => {
       setPosts([newPost, ...posts]);
     };
 
-  const onChangeActivity = (e) => {
-    setActivity(e.target.value);
-  };
-
-  const onChangeDate = (e) => {
-    setDate(e.target.value);
-  };
-
-  const onChangeDuration = (e) => {
-    setDuration(e.target.value);
-  };
-
-  const onChangeKcal = (e) => {
-    setKcal(e.target.value);
-  };
-
-  const onChangeDistance = (e) => {
-    setDistance(e.target.value);
-  };
+  const onChange = (e) => {
+      setValues({...values, [e.target.name]: e.target.value });
+  }
 
   const submit = (event) => {
     event.preventDefault();
     const valueInputActivity = {
-      Activity: activity,
-      Date: date,
-      Duration: duration,
-      Kcal: kcal,
-      Distance: distance,
+      Activity: values.activity,
+      Date: values.date,
+      Duration: values.duration,
+      Kcal: values.kcal,
+      Distance: values.distance,
     };
 
     addPost(valueInputActivity);
@@ -59,81 +96,11 @@ const InputActivity = ({ addPost }) => {
         <div className="form-box">
           <h2 className="title_input">Add Activity</h2>
           <div className="form">
-
-            {/*---------------Activity Type---------------*/}
             <div className="form-input">
-              <label className="form-label" placeholder="Activity">
-                Activity type
-              </label>
-              <input
-                className="activity-input"
-                type="text"
-                value={activity}
-                onChange={onChangeActivity}
-                placeholder="Running"
-              />
+              {inputs.map((input) => (
+                  <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
+              ))}
             </div>
-            <span className="form-input">Error message</span>
-
-            {/*---------------Date---------------*/}
-            <div className="form-input">
-              <label className="form-label" placeholder="Date">
-                Date
-              </label>
-              <input
-                className="date-input"
-                type="date"
-                value={date}
-                onChange={onChangeDate}
-                placeholder="1/1/22 12:00"
-              />
-              </div>
-              <span className="form-input">Error message</span>
-
-              {/*---------------Duration---------------*/}
-              <div className="form-input">
-              <label className="form-label" placeholder="Duration">
-                Duration
-              </label>
-              <input
-                className="duration-input"
-                type="text"
-                value={duration}
-                onChange={onChangeDuration}
-                placeholder="30:00:000"
-              />
-              </div>
-              <span className="form-input">Error message</span>
-
-              {/*---------------kcal---------------*/}
-              <div className="form-input">
-              <label className="form-label" placeholder="kcal">
-                kcal
-              </label>
-              <input
-                className="kcal-input"
-                type="number"
-                value={kcal}
-                onChange={onChangeKcal}
-                placeholder="120"
-              />
-              </div>
-              <span className="form-input">Error message</span>
-              
-              {/*---------------Distance---------------*/}
-              <div className="form-input">
-              <label className="form-label" placeholder="Distance">
-                Distance
-              </label>
-              <input
-                className="distance-input"
-                type="number"
-                value={distance}
-                onChange={onChangeDistance}
-                placeholder="5 KM."
-              />
-            </div>
-            <span className="form-input">Error message</span>
           </div>
         </div>
         <div className="icon-box">
