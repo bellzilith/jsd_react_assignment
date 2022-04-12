@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ActivityButton from "../Button/ActivityButton";
 import IconButton from "../IconButton/IconButton";
 import FormInput from "../Input/Input";
-import { useUserRecords } from '../Hooks/Hooks';
+import { useUserRecords } from "../Hooks/Hooks";
 import "./InputActivity.css";
+import axios from "axios";
 
 const InputActivity = ({ addPost }) => {
   const [values, setValues] = useState({
-      activity:"",
-      date:"",
-      duration:"",
-      kcal:"",
-      distance:"",
+    activity: "",
+    date: "",
+    duration: "",
+    kcal: "",
+    distance: "",
   });
 
   const inputs = [
@@ -20,7 +21,8 @@ const InputActivity = ({ addPost }) => {
       name: "activity",
       type: "text",
       placeholder: "running",
-      errorMessage: "Activity should be 3-16 characters and not include any special characters.",
+      errorMessage:
+        "Activity should be 3-16 characters and not include any special characters.",
       label: "Activity type",
       pattern: "^[A-Za-z0-9]{3,16}$",
       required: true,
@@ -66,28 +68,39 @@ const InputActivity = ({ addPost }) => {
 
   const [posts, setPosts] = useUserRecords();
 
-    addPost = ({ id, activity, date, duration, kcal, distance }) => {
-      const newPost = { id, activity, date, duration, kcal, distance };
-      //console.log(newPost);
-      setPosts([newPost, ...posts]);
-    };
+  addPost = ({ id, activity, date, duration, kcal, distance }) => {
+    const newPost = { id, activity, date, duration, kcal, distance };
+    //console.log(newPost);
+    setPosts([newPost, ...posts]);
+  };
 
   const onChange = (e) => {
-      setValues({...values, [e.target.name]: e.target.value });
-  }
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const running = () => {
+    setValues({ ...values, activity: "running" });
+  };
+  const badminton = () => {
+    setValues({ ...values, activity: "badminton" });
+  };
+  const canoe = () => {
+    setValues({ ...values, activity: "canoe slalom" });
+  };
 
   const submit = (event) => {
     event.preventDefault();
     const valueInputActivity = {
-      Activity: values.activity,
-      Date: values.date,
-      Duration: values.duration,
-      Kcal: values.kcal,
-      Distance: values.distance,
+      activity: values.activity,
+      date: values.date,
+      duration: values.duration,
+      kcal: values.kcal,
+      distance: values.distance,
     };
 
     addPost(valueInputActivity);
     console.log(valueInputActivity);
+    axios.post("http://localhost:4000/users/me/records", valueInputActivity);
   };
 
   return (
@@ -98,13 +111,22 @@ const InputActivity = ({ addPost }) => {
           <div className="form">
             <div className="form-input">
               {inputs.map((input) => (
-                  <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
+                <FormInput
+                  key={input.id}
+                  {...input}
+                  value={values[input.name]}
+                  onChange={onChange}
+                />
               ))}
             </div>
           </div>
         </div>
         <div className="icon-box">
-          <IconButton src="./images/athletes/Running.png" alt="Running" />
+          <IconButton
+            src="./images/athletes/Running.png"
+            alt="Running"
+            onClick={running}
+          />
           <IconButton src="./images/athletes/Badminton.png" alt="Badminton" />
           <IconButton
             src="./images/athletes/Canoe_Slalom.png"

@@ -9,6 +9,6 @@ export const client = Axios.create({
 });
 
 export const getRecords = async () => {
-    const response = await client.get('/user/me/records');
+    const response = await client.get('/users/me/records');
     return response;
 }
