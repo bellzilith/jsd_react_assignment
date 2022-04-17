@@ -12,3 +12,8 @@ export const getRecords = async () => {
     const response = await client.get('/users/me/records');
     return response;
 }
+
+// export const removeRecords = async () => {
+//     const response = await client.delete('/users/me/records/${id}');
+//     return response;
+// }

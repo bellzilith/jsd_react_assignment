@@ -6,7 +6,7 @@ import { useUserRecords } from "../Hooks/Hooks";
 import "./InputActivity.css";
 import axios from "axios";
 
-const InputActivity = ({ addPost }) => {
+const InputActivity = ({ refreshRecords }) => {
   const [values, setValues] = useState({
     activity: "",
     date: "",
@@ -66,14 +66,6 @@ const InputActivity = ({ addPost }) => {
     },
   ];
 
-  const [posts, setPosts] = useUserRecords();
-
-  addPost = ({ id, activity, date, duration, kcal, distance }) => {
-    const newPost = { id, activity, date, duration, kcal, distance };
-    //console.log(newPost);
-    setPosts([newPost, ...posts]);
-  };
-
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -85,10 +77,31 @@ const InputActivity = ({ addPost }) => {
     setValues({ ...values, activity: "badminton" });
   };
   const canoe = () => {
-    setValues({ ...values, activity: "canoe slalom" });
+    setValues({ ...values, activity: "canoe" });
+  };
+  const cycling = () => {
+    setValues({ ...values, activity: "cycling" });
+  };
+  const football = () => {
+    setValues({ ...values, activity: "football" });
+  };
+  const handball = () => {
+    setValues({ ...values, activity: "handball" });
+  };
+  const karate = () => {
+    setValues({ ...values, activity: "karate" });
+  };
+  const climbing = () => {
+    setValues({ ...values, activity: "climbing" });
+  };
+  const surfing = () => {
+    setValues({ ...values, activity: "surfing" });
+  };
+  const swimming = () => {
+    setValues({ ...values, activity: "swimming" });
   };
 
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
     const valueInputActivity = {
       activity: values.activity,
@@ -98,9 +111,9 @@ const InputActivity = ({ addPost }) => {
       distance: values.distance,
     };
 
-    addPost(valueInputActivity);
     console.log(valueInputActivity);
-    axios.post("http://localhost:4000/users/me/records", valueInputActivity);
+    await axios.post("http://localhost:4000/users/me/records", valueInputActivity);
+    refreshRecords();
   };
 
   return (
@@ -127,24 +140,51 @@ const InputActivity = ({ addPost }) => {
             alt="Running"
             onClick={running}
           />
-          <IconButton src="./images/athletes/Badminton.png" alt="Badminton" />
+          <IconButton
+            src="./images/athletes/Badminton.png"
+            alt="Badminton"
+            onClick={badminton}
+          />
           <IconButton
             src="./images/athletes/Canoe_Slalom.png"
             alt="Canoe_Slalom"
+            onClick={canoe}
           />
           <IconButton
             src="./images/athletes/Cycling_Road.png"
             alt="Cycling_Road"
+            onClick={cycling}
           />
-          <IconButton src="./images/athletes/Football.png" alt="Football" />
-          <IconButton src="./images/athletes/Handball.png" alt="Handball" />
-          <IconButton src="./images/athletes/Karate.png" alt="Karate" />
+          <IconButton
+            src="./images/athletes/Football.png"
+            alt="Football"
+            onClick={football}
+          />
+          <IconButton
+            src="./images/athletes/Handball.png"
+            alt="Handball"
+            onClick={handball}
+          />
+          <IconButton
+            src="./images/athletes/Karate.png"
+            alt="Karate"
+            onClick={karate}
+          />
           <IconButton
             src="./images/athletes/Sport_Climbing.png"
             alt="Sport_Climbing"
+            onClick={climbing}
           />
-          <IconButton src="./images/athletes/Surfing.png" alt="Surfing" />
-          <IconButton src="./images/athletes/Swimming.png" alt="Swimming" />
+          <IconButton
+            src="./images/athletes/Surfing.png"
+            alt="Surfing"
+            onClick={surfing}
+          />
+          <IconButton
+            src="./images/athletes/Swimming.png"
+            alt="Swimming"
+            onClick={swimming}
+          />
         </div>
       </div>
       <div className="form-button">

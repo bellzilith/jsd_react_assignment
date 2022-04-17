@@ -21,7 +21,7 @@ const Post = ({ id, activity, date, duration, kcal, distance, deletePost }) => {
             <tbody>
               <tr>
                 <td data-label="TYPE">{activity}</td>
-                <td data-label="DATE">{date}</td>
+                <td data-label="DATE">{new Date(date).toLocaleDateString()}</td>
                 <td data-label="DURATION">{duration}</td>
                 <td data-label="KCAL">{kcal}</td>
                 <td data-label="DISTANCE">{distance}</td>
