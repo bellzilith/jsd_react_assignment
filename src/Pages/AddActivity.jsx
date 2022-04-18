@@ -16,7 +16,7 @@ const AddActivity = () => {
       <NavBar />
       <Profile />
       <InputActivity refreshRecords={refreshRecords} />
-      <History posts={posts} />
+      <History posts={posts} refreshRecords={refreshRecords} />
       <Footer />
     </main>
   );

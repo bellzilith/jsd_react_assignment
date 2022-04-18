@@ -7,13 +7,16 @@ import Footer from "../Components/Footer/Footer";
 
 import "../App.css";
 
+import { useUserRecords } from "../Components/Hooks/Hooks";
+
 const ActivityList = (props) => {
+  const [posts] = useUserRecords();
 
   return (
     <main>
       <NavBar />
       <Profile />
-      <History />
+      <History posts={posts} />
       <Footer />
     </main>
   );

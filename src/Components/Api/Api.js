@@ -13,7 +13,8 @@ export const getRecords = async () => {
     return response;
 }
 
-// export const removeRecords = async () => {
-//     const response = await client.delete('/users/me/records/${id}');
-//     return response;
-// }
+// TODO: current edit
+export const removeRecords = async (recordId) => {
+    const response = await client.delete(`/users/me/records/${recordId}`);
+    return response;
+}
