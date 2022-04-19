@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import {Links as SidebarLink} from 'react-router-dom'
-import { FaTimes } from "react-icons";
+import {Link} from 'react-router-dom'
+import { FaTimes } from "react-icons/fa";
 
 export const DropdownContainer = styled.aside`
     position: fixed;
     z-index: 999;
     width: 100%;
     height: 100%;
-    background: #0d0d0d;
+    background: #fff;
     display: grid;
     align-items: center;
     top: 0;
@@ -18,37 +18,48 @@ export const DropdownContainer = styled.aside`
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: #fff;
+  color: #F85F6A;
 `;
 
 export const Icon = styled.div`
   position: absolute;
-  top: 1.2 rem;
-  right: 1.5 rem;
+  top: 1.2rem;
+  right: 1.5rem;
   background: transparent;
-  font-size: 2 rem;
+  font-size: 2rem;
   cursor: pointer;
   outline: none;
 `;
 
 export const SidebarWrapper = styled.div`
     color: #fff;
-`
+`;
 
-export const SidebarLink = styled(Links)`
+export const SidebarMenu = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 80px);
+  text-align: center;
+
+  @media screen and (max-width: 480px) {
+    grid-template-rows: repeat(6, 60px);
+  }
+`;
+
+export const SidebarLink = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5 rem;
+    font-size: 1.5rem;
     text-decoration: none;
     list-style: none;
     transition: 0.2s ease-in-out;
     text-decoration: none;
-    color: #fff;
+    color: #F85F6A;
     cursor: pointer;
 
     &:hover {
-        color: #01bf71;
+        color: #fa0214;
         transition: 0.2s ease-in-out;
     }
 `
