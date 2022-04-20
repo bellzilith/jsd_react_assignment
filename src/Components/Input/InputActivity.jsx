@@ -136,52 +136,52 @@ const InputActivity = ({ refreshRecords }) => {
         </div>
         <div className="icon-box">
           <IconButton
-            src=".\Images\running.png"
+            src=".\Images\Running.png"
             alt="Running"
             onClick={running}
           />
           <IconButton
-            src=".\Images\badminton.png"
+            src=".\Images\Badminton.png"
             alt="Badminton"
             onClick={badminton}
           />
           <IconButton
-            src=".\Images\canoe_slalom.png"
+            src=".\Images\Canoe_Slalom.png"
             alt="Canoe_Slalom"
             onClick={canoe}
           />
           <IconButton
-            src=".\Images\cycling_road.png"
+            src=".\Images\Cycling_Road.png"
             alt="Cycling_Road"
             onClick={cycling}
           />
           <IconButton
-            src=".\Images\football.png"
+            src=".\Images\Football.png"
             alt="Football"
             onClick={football}
           />
           <IconButton
-            src=".\Images\handball.png"
+            src=".\Images\Handball.png"
             alt="Handball"
             onClick={handball}
           />
           <IconButton
-            src=".\Images\karate.png"
+            src=".\Images\Karate.png"
             alt="Karate"
             onClick={karate}
           />
           <IconButton
-            src=".\Images\sport_climbing.png"
+            src=".\Images\Sport_Climbing.png"
             alt="Sport_Climbing"
             onClick={climbing}
           />
           <IconButton
-            src=".\Images\surfing.png"
+            src=".\Images\Surfing.png"
             alt="Surfing"
             onClick={surfing}
           />
           <IconButton
-            src=".\Images\swimming.png"
+            src=".\Images\Swimming.png"
             alt="Swimming"
             onClick={swimming}
           />
